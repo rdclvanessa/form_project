@@ -11,17 +11,20 @@
 </head>
 <body>
     <div class="container">
-        <h4>Method: {{ method }}</h4>
+
+        <h1>Course Form</h1>
+
+        <ul>
+        {% for course in courses %}
+            <li>{{course}}</li>
+        {% endfor %}
+        </ul>
 
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            {% comment %} {{ form.as_p }} {% endcomment %}
             <p>
-                <input class="btn" type="submit" name="submit_input" value="Submit Input">
-            </p>
-            <p>
-                <button type="submit" name="button_element" value="Button Element">Button With<strong>Styled</strong> Text </button>
+                <input class="btn btn-primary" type="submit" name="submit_input" value="Submit Input">
             </p>
         </form>
     </div>
